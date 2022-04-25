@@ -16,4 +16,5 @@ class User:
             if user.username == username:
                 return user
     def display_users(self):
-        pass
+        if User.display_users():
+            return User.user_list

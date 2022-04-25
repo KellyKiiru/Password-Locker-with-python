@@ -24,6 +24,10 @@ class TestUser(unittest.TestCase):
         self.new_user.save_user()
         found_user = User.find_user("kelly")
         
+    def test_display_users(self):
+        for user in User.user_list:
+            return user
+        
 
 
 if __name__ == '__main__':
