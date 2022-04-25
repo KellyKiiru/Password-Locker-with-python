@@ -1,4 +1,3 @@
-from operator import imod
 from credentials import Credentials
 import unittest
 
@@ -15,6 +14,11 @@ class TestCredentials(unittest.TestCase):
     def test_create_credential(self):
         self.new_credential = Credentials("facebook", "kellykiiru", "asdf1234")
         self.new_credential.save_credential()
+        
+    def test_find_credential(self):
+        for credential in Credentials.credentials_list:
+            return credential
+        
         
 if __name__ == '__main__':
     unittest.main()
