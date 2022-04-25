@@ -9,10 +9,11 @@ class User:
         
     def save_user(self):
         User.user_list.append(self)
-        
-    def find_user(self):
-        for user in User.user_list:
-            if User.self.user_name == User.user.username:
+    
+    @classmethod  
+    def find_user(cls, username):
+        for user in cls.user_list:
+            if user.username == username:
                 return user
     def display_users(self):
         pass
