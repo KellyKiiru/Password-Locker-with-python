@@ -8,4 +8,10 @@ class Credentials:
         self.password = password
         
     def save_credential(self):
+        Credentials.credentials_list.append(self)
+        
+    def find_credential(self):
         pass
+    def display_credentials(self):
+        pass
+    
