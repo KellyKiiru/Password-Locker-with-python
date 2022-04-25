@@ -1,8 +1,8 @@
 import unittest
 from user import User
 
-
-class TestUser(unittest.Testcase):
+class TestUser(unittest.TestCase):
+    
 
     def setUp(self):
         self.new_user = User("kelly", "asdf1234")
