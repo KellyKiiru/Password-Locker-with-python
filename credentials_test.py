@@ -15,7 +15,13 @@ class TestCredentials(unittest.TestCase):
         self.new_credential = Credentials("facebook", "kellykiiru", "asdf1234")
         self.new_credential.save_credential()
         
-    def test_find_credential(self):
+    def test_find_credential_by_account(self):
+        self.new_credential = Credentials("facebook", "kellykiiru", "asdf1234")
+        self.new_credential.save_credential()
+        found_account = Credentials.find_credential_by_account('facebook')
+        self.assertEqual(found_account.user_name,self.new_credential.user_name)
+        
+    def test_display_credentials(self):
         for credential in Credentials.credentials_list:
             return credential
         

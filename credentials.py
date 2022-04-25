@@ -9,12 +9,14 @@ class Credentials:
         
     def save_credential(self):
         Credentials.credentials_list.append(self)
+        
     @classmethod    
-    def find_credential(cls, account):
+    def find_credential_by_account(cls, account):
         for credential in cls.credentials_list:
             if credential.account == account:
-                return account
+                return credential
         
-    def display_credentials(self):
-        pass
+    def display_credentials():
+        for credential in Credentials.credentials_list():
+            return credential
     
