@@ -22,8 +22,7 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(found_account.user_name,self.new_credential.user_name)
         
     def test_display_credentials(self):
-        for credential in Credentials.credentials_list:
-            return credential
+        self.assertEqual(Credentials.display_credentials(),Credentials.credentials_list)
         
         
 if __name__ == '__main__':
