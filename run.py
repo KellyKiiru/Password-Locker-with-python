@@ -131,7 +131,32 @@ def passwordCreaterandLocker():
                             print("Please use the short code.")
                         save_crential(create_credentials(account, user_name, password))
                     elif short_code == 'dc':
+                        if display_credentials():
+                            print("This is a list of your accounts\n")
+                            print("-"*15)
+                            for credential in Credentials.credentials_list:
+                                print(f" {credential.account}-- {credential.user_name} -- {credential.password} ")
+                            print("\n")
+                        else:
+                            print("Sorry, you have no credentials.")
+                    elif short_code == 'fc':
+                        find = input("Enter account name you want to find").lower()
                         
+                        if credential_exist(find):
+                            found_account = find_credential(find)
+                            print("\n")
+                            print(f"Acc: {found_account.account} {found_account.password}\n")
+                            print("\n")
+                        else:
+                            print("Credential for account cannot be found. \n")
+                    elif short_code == 'ex':
+                        return
+                    else:
+                        print("Kindly use the provided shortcodes.\n")
+            else:
+                print('\n')
+                print("User doesn't seem to have an account.\n")
+                
         elif confirmation_option == 'no':
                 pass              
         
