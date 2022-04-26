@@ -102,7 +102,7 @@ def passwordCreaterandLocker():
         confirmation_option = input().lower()
 
         if confirmation_option == 'yes':
-            print("That's great, what is your username?\n")
+            print("That's great. Enter username for the account?\n")
             user_name = input().lower()
             print("Enter your password.\n")
             user_password = input()
@@ -112,7 +112,8 @@ def passwordCreaterandLocker():
                 print(f"Hi {user_name}. You are currently logged in.")
 
                 while True:
-                    print("-"*15)
+                    print("-"*100)
+                    print("-"*100)
                     print("Use these shortcode to navigate our app.\n")
                     print(
                         "cc to create credential; dc to display credentials; fc to find a credential and ex to exit.")
@@ -121,17 +122,19 @@ def passwordCreaterandLocker():
 
                     if short_code == "cc":
                         print("Continue to create new credential")
-                        print("-"*15)
+                        print("-"*100)
+                        print("-"*100)
                         account = input(
                             "Please enter your social media account eg twitter or instagram:\n").lower()
-                        username = input(
-                            "Input the username associated with the account...\n")
-                        print("-"*15)
+                        username = input(f"Input the username associated with your {account} account...\n")
+                        print("-"*100)
+                        print("-"*100)
                         answer = input(
-                            "would you like an auto generated password?").lower()
-
+                            "would you like an auto generated password?\n").lower()
                         if answer == 'yes':
-                            password = str(generate_password)
+                            password = generate_password()
+                            print("-"*30)
+                            print(f"This is your new password: {password}")
                         elif answer == 'no':
                             password = input(
                                 "Input your preferred password...\n")
@@ -142,7 +145,8 @@ def passwordCreaterandLocker():
                     elif short_code == 'dc':
                         if display_credentials():
                             print("This is a list of your accounts\n")
-                            print("-"*15)
+                            print("-"*100)
+                            print("-"*100)
                             for credential in Credentials.credentials_list:
                                 print(
                                     f" {credential.account}-- {credential.user_name} -- {credential.password} ")
@@ -151,7 +155,7 @@ def passwordCreaterandLocker():
                             print("Sorry, you have no credentials.")
                     elif short_code == 'fc':
                         find = input(
-                            "Enter account name you want to find").lower()
+                            "Enter social media site for account you want to find\n").lower()
 
                         if credential_exist(find):
                             found_account = find_credential(find)
@@ -188,7 +192,8 @@ def passwordCreaterandLocker():
 
                     if response == 'yes':
                         password = generate_password()
-                        print("-"*15)
+                        print("-"*100)
+                        print("-"*100)
 
                     elif response == 'no':
                         password = input("Type in your preferred password.\n")
