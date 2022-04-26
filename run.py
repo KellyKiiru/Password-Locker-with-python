@@ -118,12 +118,20 @@ def passwordCreaterandLocker():
                     if short_code == "cc":
                         print("Continue to create new credential")
                         print("-"*15)
-                        account = input("Please enter your social media account:\n").lower()
+                        account = input("Please enter your social media account eg twitter or instagram:\n").lower()
                         username = input("Input the username associated with the account...\n")
                         print("-"*15)
                         answer = input("would you like an auto generated password?").lower()
                         
-
+                        if answer == 'yes':
+                            password = str(generate_password)
+                        elif answer == 'no':
+                            password = input("Input your preferred password...\n")
+                        else:
+                            print("Please use the short code.")
+                        save_crential(create_credentials(account, user_name, password))
+                    elif short_code == 'dc':
+                        
         elif confirmation_option == 'no':
                 pass              
         
