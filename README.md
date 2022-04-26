@@ -1,4 +1,6 @@
 # PASSWORD LOCKER
+Lightweight application that creates users and their associated credentials. 
+It will also save credentials for said user and denies access to said credentials if user login fails.
 
 ## Technologies used
 * Python
