@@ -100,22 +100,30 @@ def passwordCreaterandLocker():
         
         if confirmation_option == 'yes':
             print("That's great, what is your username?\n")
-            username = input().lower()
+            user_name = input().lower()
             print("Enter your password.\n")
             user_password = input()
 
-            if user_exist(username):
-                found_user = find_user(username)
+            if user_exist(user_name):
+                found_user = find_user(user_name)
                 print(f"Hi {found_user}. You are currently logged in.")
                 
                 while True:
                     print("-"*15)
                     print("Use these shortcode to navigate our app.\n")
                     print("cc to create credential; dc to display credentials; fc to find a credential and ex to exit.")
+                    
                     short_code = input().lower()
                     
                     if short_code == "cc":
                         print("Continue to create new credential")
+                        print("-"*15)
+                        account = input("Please enter your social media account:\n").lower()
+                        username = input("Input the username associated with the account...\n")
+                        print("-"*15)
+                        answer = input("would you like an auto generated password?").lower()
+                        
+
         elif confirmation_option == 'no':
                 pass              
         
