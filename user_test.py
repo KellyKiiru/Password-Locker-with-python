@@ -27,7 +27,13 @@ class TestUser(unittest.TestCase):
     def test_display_users(self):
         for user in User.user_list:
             return user
-        
+    def test_user_exists(self):
+        self.new_user.save_user()
+        test_user = User("becky","poiut",[])
+        test_user.save_user()
+
+        user_exist = User.user_exists("becky")
+        self.assertTrue(user_exist)
 
 
 if __name__ == '__main__':

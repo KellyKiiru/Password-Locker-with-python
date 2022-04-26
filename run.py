@@ -45,6 +45,7 @@ def generate_password():
 
 ###########################################################
 
+
 def create_user(username, password):
     new_user = User(username, password)
     return new_user
@@ -84,7 +85,25 @@ def display_credentials():
 
 
 def passwordCreaterandLocker():
-    print ("hello world")
+    print("Hi there, welcome to password locker.\n")
+    print("Do you have an account with us?")
+
+    confirmation_option = input().lower()
+
+    while True:
+        if confirmation_option == 'yes':
+            print("That's great, what is your account name?")
+            user_name = input().lower()
+            print("Thank you, please enter your password.")
+            user_password = input()
+
+            if find_user(user_name):
+                return User.display_users()
+
+        elif confirmation_option == 'no':
+            pass
+    else:
+        print("error")
 
 
 if __name__ == '__main__':
