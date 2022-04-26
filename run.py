@@ -99,18 +99,26 @@ def passwordCreaterandLocker():
         confirmation_option = input().lower()
         
         if confirmation_option == 'yes':
-            print("That's great, what is your account name?")
-            user_name = input().lower()
-            print("Thank you, please enter your password.")
+            print("That's great, what is your username?\n")
+            username = input().lower()
+            print("Enter your password.\n")
             user_password = input()
 
-            if find_user(user_name):
-                return User.display_users()
-
+            if user_exist(username):
+                found_user = find_user(username)
+                print(f"Hi {found_user}. You are currently logged in.")
+                
+                while True:
+                    print("-"*15)
+                    print("Use these shortcode to navigate our app.\n")
+                    print("cc to create credential; dc to display credentials; fc to find a credential and ex to exit.")
+                    short_code = input().lower()
+                    
+                    if short_code == "cc":
+                        print("Continue to create new credential")
         elif confirmation_option == 'no':
-            pass
-    else:
-        print("error")
+                pass              
+        
 
 
 if __name__ == '__main__':
