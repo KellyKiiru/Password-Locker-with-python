@@ -61,6 +61,9 @@ def find_user(self):
 
 def list_users(self):
     return User.user_list()
+
+def user_exist(user):
+    return User.user_exists(user)
 ###########################################################
 
 
@@ -80,17 +83,21 @@ def find_credential(account):
 def display_credentials():
     return display_credentials()
 
+def credential_exist(account):
+    return Credentials.credential_exist(account)
+
 
 ############################################################
 
 
 def passwordCreaterandLocker():
-    print("Hi there, welcome to password locker.\n")
-    print("Do you have an account with us?")
-
-    confirmation_option = input().lower()
-
+    
     while True:
+        print("Hi there, welcome to password locker.\n")
+        print("Do you have an account with us?")
+
+        confirmation_option = input().lower()
+        
         if confirmation_option == 'yes':
             print("That's great, what is your account name?")
             user_name = input().lower()
