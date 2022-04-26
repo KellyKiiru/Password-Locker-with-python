@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.9
+from urllib import response
 from user import User
 from credentials import Credentials
 import random
@@ -158,7 +159,34 @@ def passwordCreaterandLocker():
                 print("User doesn't seem to have an account.\n")
                 
         elif confirmation_option == 'no':
-                pass              
+                print("Use these shortcode to navigate our app.\n")
+                print("cc to create credential; dc to display credentials; fc to find a credential and ex to exit.")
+                
+                short_code = input().lower()
+                if short_code == 'cc':
+                    username = input("Enter your username: \n")
+                    
+                    if user_exist(username):
+                        search_for_user = find_user(username)
+                    else:
+                        print("Might you prefer an auto generated password? \n")
+                        print("Type yes or no.\n")
+                        response = input().lower()
+                        
+                        if response == 'yes':
+                            password = generate_password()
+                            print("-"*15)
+                            
+                        elif response == 'no':
+                            password = input("Type in your preferred password.\n")
+                        else:
+                            print("Didn't quite get that. Please use the shortcodes.")
+                        print(f'Here is your password: {password} \n')
+                elif short_code == 'ex':
+                    print("See you another time...")
+                    break
+        else:
+            print("Kindly use the designated shortcodes.")
         
 
 
